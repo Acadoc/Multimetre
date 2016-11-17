@@ -1,48 +1,49 @@
-#include <Arduino.h>
-#include <avr/pgmspace.h> //on n'oublie pas d'intégrer la bibliothèque de gestion de mémoire
 
-#define DEBUG_MODE 1
+#ifndef Multimetre_h
 
-#if DEBUG_MODE == 1
-  #define DEBUG_PRINT(x) Serial.print(x)
-#else
-  #define DEBUG_PRINT() 
+	#define Multimetre_h
+
+	#ifndef Arduino_h
+		#include <Arduino.h>
+	#endif
+
+	#include <avr/pgmspace.h> //on n'oublie pas d'intégrer la bibliothèque de gestion de mémoire
+
+
+	#ifndef ressources_h
+		#include "ressources.h"
+	#endif
+
+	#define Pin_10		9
+	#define Pin_100		8
+	#define Pin_1k		7
+	#define Pin_10k		6
+	#define Pin_100k	5
+	#define Pin_1M		4
+	#define Pin_10M		3
+	#define Pin_100M	2
+
+
+	#define NB_PTS_INTERP 1024
+
+
+	extern const int TableInterp_V100M[];
+	extern const int TableInterp_V10M[]	;
+	extern const int TableInterp_V1M[]	;
+	extern const int TableInterp_V100K[];
+	extern const int TableInterp_V10K[]	;
+	extern const int TableInterp_V1K[]	;
+	extern const int TableInterp_V100[]	;
+	extern const int TableInterp_V10[]	;
+
+	extern short active_chan;
+
+	extern void ReadAllSerial(char *output_ptr);
+	extern void UserCmdExe(char *user_cmd);
+
+
+	//extern int find_dichotomy(float value_to_find, float *table_to_parse);
 #endif
-
-
-#define Pin_10		9
-#define Pin_100		8
-#define Pin_1k		7
-#define Pin_10k		6
-#define Pin_100k	5
-#define Pin_1M		4
-#define Pin_10M		3
-#define Pin_100M	2
-
-
-#define NB_PTS_INTERP 1024
-
-#define NB_DIO 13
-#define FALSE 0
-#define TRUE 1
-
-extern const int TableInterp_V100M[];
-extern const int TableInterp_V10M[]	;
-extern const int TableInterp_V1M[]	;
-extern const int TableInterp_V100K[];
-extern const int TableInterp_V10K[]	;
-extern const int TableInterp_V1K[]	;
-extern const int TableInterp_V100[]	;
-extern const int TableInterp_V10[]	;
-
-extern short active_chan;
-
-extern void ReadAllSerial(char *output_ptr);
-extern void UserCmdExe(char *user_cmd);
-
-
-//extern int find_dichotomy(float value_to_find, float *table_to_parse);
-
 
 
 #define INTERP_TABLE_V10 {	\

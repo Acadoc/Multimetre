@@ -16,7 +16,7 @@ char trucdemerde[6] = {'G','e','t','R','e','s'};
 void setup() {
   // put your setup code here, to run once:
 
-	active_chan = 0;
+	//active_chan = 0;
 
 	pinMode(Pin_10,OUTPUT);
 	pinMode(Pin_100,OUTPUT);
@@ -39,14 +39,14 @@ void setup() {
 
 	DEBUG_PRINT("Go !\n");
 
-	digitalWrite( Pin_10	,LOW) ;
-	digitalWrite( Pin_100	,LOW) ;
-	digitalWrite( Pin_1k	,LOW) ;
-	digitalWrite( Pin_10k	,LOW) ;
-	digitalWrite( Pin_100k	,LOW) ;
-	digitalWrite( Pin_1M	,LOW) ;
-	digitalWrite( Pin_10M	,LOW) ;
-	digitalWrite( Pin_100M	,LOW) ;
+	digitalWrite(Pin_10,LOW);
+	digitalWrite(Pin_100,LOW);
+	digitalWrite(Pin_1k,LOW);
+	digitalWrite(Pin_10k,LOW);
+	digitalWrite(Pin_100k,LOW);
+	digitalWrite(Pin_1M,LOW);
+	digitalWrite(Pin_10M,LOW);
+	digitalWrite(Pin_100M,LOW);
 
 	/*DEBUG_PRINT( pgm_read_word(TableInterp_V100M+56));
 	DEBUG_PRINT("\t end\n");
